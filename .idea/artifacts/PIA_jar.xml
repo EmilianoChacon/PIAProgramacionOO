@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PIA:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PIA_jar</output-path>
+    <root id="archive" name="PIA.jar">
+      <element id="module-output" name="PIA" />
+    </root>
+  </artifact>
+</component>
