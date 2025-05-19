@@ -8,15 +8,15 @@ import java.awt.*;
  */
 public class Bloque{
     private final int tamcasillas = 32;
-    int x;
-    int y;
+    public int x;
+    public int y;
     int ancho;
     int alto;
     Image img;
     int iniciox;
     int inicioy;
     char direccion = 'U';
-    int velocidadx = 0;
+    public int velocidadx = 0;
     int velocidady = 0;
 
 

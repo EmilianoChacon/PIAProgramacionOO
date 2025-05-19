@@ -39,15 +39,15 @@ public class SpaceInvaders extends JPanel implements ActionListener, KeyListener
     int naveVelocidadx = tamcasillas;
     Bloque nave;
 
-    ArrayList<Bloque> alienArray;
+    public ArrayList<Bloque> alienArray;
     int alienAncho = tamcasillas * 2;
     int alienAlto = tamcasillas;
     int alienX = tamcasillas ;
     int alienY = tamcasillas ;
 
-    int aliensFilas = 2;
-    int aliensColumnas = 3;
-    int aliensCuenta = 0;
+    public int aliensFilas = 2;
+    public int aliensColumnas = 3;
+    public int aliensCuenta = 0;
     int alienVelocidadx = 1;
 
     ArrayList<Bloque> balasArray;
@@ -61,15 +61,15 @@ public class SpaceInvaders extends JPanel implements ActionListener, KeyListener
     int powerUpAncho = tamcasillas;
     int powerUpAlto = tamcasillas;
     int powerUpVelocidad = 2;
-    boolean escudoActivo = false;
+    public boolean escudoActivo = false;
     int escudoRadio;
-    boolean disparoDobleActivo = false;
+    public boolean disparoDobleActivo = false;
 
 
 
     public Timer loop;
 
-    int puntaje;
+    public int puntaje;
     public int maxpuntaje;
     boolean gameOver = false;
     boolean esperandoNuevaOleada = false;

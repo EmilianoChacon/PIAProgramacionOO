@@ -5,13 +5,13 @@ import java.awt.*;
 /**
  * Clase de bloque, que sirve para la representación de los objetos del mapa y del juego
  */
-class Bloque {
+public class Bloque {
     int x;
     int y;
     int ancho;
     int alto;
     Image imagen;
-    boolean vivo = true;
+    public boolean vivo = true;
     boolean usado = false;
 
     /**
@@ -22,7 +22,7 @@ class Bloque {
      * @param imagen imagen del objeto(aliens, nave, balas)
      * @apiNote Constructor de la clase, para tener todos los atributos a cada entidad
      */
-    Bloque(int x, int y, int ancho, int alto, Image imagen) {
+    public Bloque(int x, int y, int ancho, int alto, Image imagen) {
         this.x = x;
         this.y = y;
         this.ancho = ancho;

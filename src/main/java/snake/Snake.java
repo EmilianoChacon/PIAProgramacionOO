@@ -12,21 +12,21 @@ public class Snake extends JPanel implements ActionListener, KeyListener{
 //Este es de los juegos que menos me costó programar y entender ya que solo se basa
 // en el movimiento de la serpiente, las colisiones para el gameOver y la comida,
 // generarla y que la serpiente se la coma
-    int ancho;
-    int alto;
-    int casillaTam = 25;
+public int ancho;
+    public int alto;
+    public int casillaTam = 25;
 
-    casilla cabeza;
-    ArrayList<casilla> cuerpo;
+    public casilla cabeza;
+    public ArrayList<casilla> cuerpo;
 
-    casilla comida;
+    public casilla comida;
     Random rand;
 
     public Timer loop;
-    int velocidadx;
-    int velocidady;
+    public int velocidadx;
+    public int velocidady;
 
-    boolean gameover = false;
+    public boolean gameover = false;
 
 
     public int maxpuntaje;

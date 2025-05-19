@@ -41,17 +41,17 @@ public class PacMan extends JPanel implements ActionListener,KeyListener{
 
 
     public static HashSet<Bloque> muros;
-    HashSet<Bloque> comidas;
-    ArrayList<Fantasma> fantasmas;
-    HashSet<Bloque> comidasEsp;
-    Bloque Pacman;
+    public HashSet<Bloque> comidas;
+    public ArrayList<Fantasma> fantasmas;
+    public HashSet<Bloque> comidasEsp;
+    public Bloque Pacman;
 
     public Timer loop;
     char[] direcciones = {'U','D','L','R'};
     Random rand = new Random();
-    int puntaje = 0;
+    public int puntaje = 0;
     public int maxpuntaje = 0;
-    int vidas = 3;
+    public int vidas = 3;
     boolean gameover = false;
 
 

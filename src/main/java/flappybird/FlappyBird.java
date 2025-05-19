@@ -17,7 +17,7 @@ import javax.swing.*;
   que solo cambia la velocidad del pájaro para que se vaya hacia abajo*/
 public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     int ancho = 360;
-    int alto = 640;
+    public int alto = 640;
 
     private Image fondoImg = new ImageIcon(getClass().getResource("/flappybirdbg.png")).getImage();
     private final Image fondoImg2 = new ImageIcon(getClass().getResource("/flappybirdbg2.png")).getImage();
@@ -32,17 +32,17 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
 
     public Pajaro pajaro;
     double velocidadX = -4;
-    int velocidadY = 0;
+    public int velocidadY = 0;
     int gravedad = 1;
 
-    ArrayList<Tuberia> tuberias;
+    public ArrayList<Tuberia> tuberias;
     Random rand = new Random();
 
     public Timer loop;
     public Timer colocacionTuberias;
     public int delayColocacion;
 
-    boolean gameOver = false;
+    public boolean gameOver = false;
     public double puntaje = 0;
     public int maxPuntaje = 0;
     int temaActual = 1;

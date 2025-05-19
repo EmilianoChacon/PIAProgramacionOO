@@ -3,14 +3,14 @@ package flappybird;
 import java.awt.*;
 
 public class Tuberia {
-    int tuberiaX = 360;
-    int tuberiaY = 0;
+    public int tuberiaX = 360;
+    public int tuberiaY = 0;
     int tuberiaAncho = 64;
     int tuberiaAlto = 512;
     Image imagen;
     boolean pasado = false;
 
-    Tuberia(Image imagen) {
+    public Tuberia(Image imagen) {
         this.imagen = imagen;
     }
 }
