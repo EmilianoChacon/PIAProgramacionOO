@@ -114,7 +114,19 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     public void draw(Graphics g) {
         //System.out.println("Prueba fps");
         g.drawImage(fondoImg, 0, 0, ancho, alto,null);
-        g.drawImage(pajaro.imagen,pajaro.x,pajaro.y,pajaro.ancho,pajaro.alto,null);
+        Graphics2D g2d = (Graphics2D) g.create();
+
+        int centerX = pajaro.x + pajaro.ancho / 2;
+        int centerY = pajaro.y + pajaro.alto / 2;
+
+        double angulo = Math.toRadians(Math.max(-45, Math.min(velocidadY * 3, 90)));
+
+        g2d.rotate(angulo, centerX, centerY);
+
+        g2d.drawImage(pajaro.imagen, pajaro.x, pajaro.y, pajaro.ancho, pajaro.alto, null);
+
+        g2d.dispose();
+
 
         for(int i = 0; i < tuberias.size(); i++){
             Tuberia tuberia = tuberias.get(i);
