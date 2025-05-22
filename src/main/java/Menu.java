@@ -6,6 +6,7 @@
 
 import Space.SpaceInvaders;
 import flappybird.FlappyBird;
+import maxpuntajes.GestorRecords;
 import pac_man.PacMan;
 import reproductor.ReproductorSonido;
 import snake.Snake;
@@ -32,6 +33,7 @@ public class Menu extends JFrame{
     static int maxSnake = 0;
     static int maxPacman = 0;
     static int maxSpace = 0;
+    static GestorRecords gestor;
 /*Creo que el Menú fue el que me costó más que los juegos xd ya que no seguí tutoriales
 y quería que quedara perfecto tuve uno que otro problema con el texto y las imagenes de los botones
 a puro prueba y error lo logré (le puse hasta mi nombre a la imagen)
@@ -58,6 +60,13 @@ a puro prueba y error lo logré (le puse hasta mi nombre a la imagen)
         };
         fondoPanel.setLayout(null); // Layout manual
         setContentPane(fondoPanel);
+
+        gestor = new GestorRecords();
+
+        maxPacman = gestor.getRecord("PacMan");
+        maxSnake = gestor.getRecord("Snake");
+        maxFlappy = gestor.getRecord("FlappyBird");
+        maxSpace = gestor.getRecord("SpaceInvaders");
 
 
 
@@ -89,6 +98,7 @@ a puro prueba y error lo logré (le puse hasta mi nombre a la imagen)
         FloatControl volumen = (FloatControl) fondo.getControl(FloatControl.Type.MASTER_GAIN);
         volumen.setValue(-5.0f);
         fondo.loop(Clip.LOOP_CONTINUOUSLY);
+
 
 
 
@@ -229,6 +239,7 @@ a puro prueba y error lo logré (le puse hasta mi nombre a la imagen)
                 menu.setEnabled(true); // Reactivar el menú cuando se cierra el juego
                 menu.toFront();
                 maxFlappy = Math.max(flappyBird.maxPuntaje,maxFlappy);
+                gestor.actualizarRecord("FlappyBird", maxFlappy);
                 actualizarTextoBotones();
                 fondo.loop(Clip.LOOP_CONTINUOUSLY);
 
@@ -270,6 +281,7 @@ a puro prueba y error lo logré (le puse hasta mi nombre a la imagen)
                 menu.setEnabled(true);
                 menu.toFront();
                 maxSnake = Math.max(snakejuego.maxpuntaje,maxSnake);
+                gestor.actualizarRecord("Snake", maxSnake);
                 actualizarTextoBotones();
                 fondo.loop(Clip.LOOP_CONTINUOUSLY);
 
@@ -308,6 +320,7 @@ a puro prueba y error lo logré (le puse hasta mi nombre a la imagen)
                 menu.setEnabled(true); // Reactiva el menú cuando se cierra el juego
                 menu.toFront();
                 maxPacman = Math.max(pacman.maxpuntaje,maxPacman);
+                gestor.actualizarRecord("PacMan", maxPacman);
                 actualizarTextoBotones();
                 fondo.loop(Clip.LOOP_CONTINUOUSLY);
             }
@@ -354,6 +367,7 @@ a puro prueba y error lo logré (le puse hasta mi nombre a la imagen)
                 menu.setEnabled(true);
                 menu.toFront();
                 maxSpace = Math.max(maxSpace,space.maxpuntaje);
+                gestor.actualizarRecord("SpaceInvaders", maxSpace);
                 actualizarTextoBotones();
                 fondo.loop(Clip.LOOP_CONTINUOUSLY);
             }

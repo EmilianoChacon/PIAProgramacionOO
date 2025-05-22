@@ -113,8 +113,12 @@ public int ancho;
             cuerpo.add(new casilla(comidaEspecial.x, comidaEspecial.y));
             ReproductorSonido.play("logro");
 
-            loop.setDelay(50);
-            Timer t = new Timer(3000, e -> loop.setDelay(100));
+            loop.setDelay(72);
+            velocidadAumentada = true;
+            Timer t = new Timer(4500, e -> {
+                loop.setDelay(100);
+                velocidadAumentada = false;
+            });
             t.setRepeats(false);
             t.start();
 
@@ -179,12 +183,20 @@ public int ancho;
             g.setColor(Color.RED);
             g.fill3DRect(comida.x*casillaTam, comida.y*casillaTam, casillaTam, casillaTam,true);}
 
+        if(!velocidadAumentada){
+            g.setColor(Color.green);
+            g.fill3DRect(cabeza.x*casillaTam, cabeza.y*casillaTam, casillaTam, casillaTam,true);
 
-        g.setColor(Color.green);
-        g.fill3DRect(cabeza.x*casillaTam, cabeza.y*casillaTam, casillaTam, casillaTam,true);
+            for (casilla partecuerpo : cuerpo) {
+                g.fill3DRect(partecuerpo.x * casillaTam, partecuerpo.y * casillaTam, casillaTam, casillaTam, true);
+            }
+        }else{
+            g.setColor(Color.orange);
+            g.fill3DRect(cabeza.x*casillaTam, cabeza.y*casillaTam, casillaTam, casillaTam,true);
 
-        for (casilla partecuerpo : cuerpo) {
-            g.fill3DRect(partecuerpo.x * casillaTam, partecuerpo.y * casillaTam, casillaTam, casillaTam, true);
+            for (casilla partecuerpo : cuerpo) {
+                g.fill3DRect(partecuerpo.x * casillaTam, partecuerpo.y * casillaTam, casillaTam, casillaTam, true);
+            }
         }
 
         g.setFont(new Font("Arial", Font.BOLD, 16));
@@ -207,7 +219,7 @@ public int ancho;
     /**
      * @param e the event to be processed
      * @apiNote méto.do del actionListener, sirve para que cada vez que el timer colocado en el constructor
-     * se ejecute, se ejecuten estos meto.dos para que el juego "corra"
+     * se ejecute, se ejecuten estos meto. dos para que el juego "corra"
      */
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -240,6 +252,7 @@ public int ancho;
             velocidady = 0;
         } else if (gameover && e.getKeyCode() == KeyEvent.VK_ENTER) {
             loop.setDelay(100);
+            velocidadAumentada = false;
             especialActiva = false;
             comidaEspecial = null;
             cabeza.x = 5;
